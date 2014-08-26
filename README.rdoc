@@ -1,3 +1,5 @@
 == README
 
-This is David's Autogiftr application. It's a work in progress but it's going to be huge!!!
+This is David's Autogiftr application. 
+
+It's a work in progress but it's going to be amazing!
