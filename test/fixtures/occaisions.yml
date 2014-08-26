@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  message: MyText
+  name: MyString
+  date: 2014-08-19
+  occaision_type: MyString
+  recipient_id: 
+
+two:
+  message: MyText
+  name: MyString
+  date: 2014-08-19
+  occaision_type: MyString
+  recipient_id: 

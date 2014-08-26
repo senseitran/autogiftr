@@ -1,0 +1,64 @@
+<h1>Admin</h1>
+<div class="row">
+	<div class="col-md-6">
+		<h2>Gifts</h2>
+		<%= link_to 'Add gift', new_gift_path, class: 'btn btn-primary btn-sm' %>
+		<table class="table">
+		<tr>
+			<th>Name</th>
+			<th>Price</th>
+		<tr>
+		<% @gifts.each do |gift| %>
+		<tr>
+			<td><%= image_tag(gift.picture_url(:thumbnail), width:50, height:50) %><%= link_to gift.name, gift %></td>
+			<td><%= gift.price %></td>
+		</tr>
+		<% end %>
+		</table>
+	</div>
+
+	<div class="col-md-6">
+		<h2>Accounts</h2>
+		<table class="table">
+		<tr>
+			<th>Name</th>
+			<th>User Email</th>
+		<tr>
+		<% @accounts.each do |account| %>
+		<tr>
+			<td><%= account.name %></td>
+			<td><%= account.user.email %></td>
+		</tr>
+		<% end %>
+		</table>
+	</div>
+
+	<div class="col-md-12">
+		<h2>Upcoming occasions</h2>
+		<table class="table">
+		<tr>
+			<th>Occasion name</th>
+			<th>Date</th>
+			<th>Type</th>
+			<th>Recipient ID</th>
+			<th>Gifts</th>
+		<tr>
+		<% @future_occaisions.each do |occaision| %>
+		<tr>
+			<td><%= occaision.name %></td>
+			<td><%= occaision.date %></td>
+			<td><%= occaision.occaision_type %></td>
+			<td><%= occaision.recipient_id %></td>
+			<td><ul>
+				<% occaision.gifts.each do |gift| %>
+				<li><%= gift.name %></li>
+				<% end %>
+			</ul></td>
+		</tr>
+		<% end %>
+		</table>
+	</div>
+
+	</div>
+</div>
+

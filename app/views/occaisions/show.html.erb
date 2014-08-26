@@ -1,0 +1,43 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Message:</strong>
+  <%= @occaision.message %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @occaision.name %>
+</p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @occaision.date %>
+</p>
+
+<p>
+  <strong>Occaision type:</strong>
+  <%= @occaision.occaision_type %>
+</p>
+
+<p>
+  <strong>Recipient:</strong>
+  <%= @occaision.recipient %>
+</p>
+
+    <table class="table">
+    <tr>
+      <th>Name</th>
+      <th>Price</th>
+    <tr>
+    <% @gifts.each do |gift| %>
+    <tr>
+      <td><%= gift.name %></td>
+      <td><%= gift.price %></td>
+      <td><%= link_to 'Add gift', add_gift_occaision_path(gift: gift.id), class: 'btn btn-primary' %></td>
+    </tr>
+    <% end %>
+    </table>
+
+<%= link_to 'Edit', edit_occaision_path(@occaision) %> |
+<%= link_to 'Back', occaisions_path %>

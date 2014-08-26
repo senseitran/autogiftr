@@ -1,0 +1,48 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @account.name %>
+</p>
+
+<p>
+  <strong>Address:</strong>
+  <%= @account.address %>
+</p>
+
+<p>
+  <strong>Phone:</strong>
+  <%= @account.phone %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @account.user.email %>
+</p>
+
+<p><%= link_to 'Add a recipient', new_recipient_path, class: 'btn btn-danger' %>
+
+<%= link_to 'Edit', edit_account_path(@account), class: 'btn btn-default' %>
+
+<h2>My recipients</h2>
+<table class="table table-hover"
+<tr>
+	<th>Name</th>
+	<th>Address</th>
+  <th>Occasion</th>
+</tr>
+<% @account.user.recipients.each do |recipient| %>
+	<tr> 
+	<td><%= recipient.name %></td>
+	<td><%= recipient.address %></td>
+	<td>
+    <% if recipient.occaisions.count > 0 %>
+    <% recipient.occaisions.each do |occaision| %>
+      <%= link_to occaision.name, occaision %> <br>
+      <% end %>
+    <% end %>
+  </td>
+  <td><%= link_to 'Add occasion', new_occaision_path(recipient: recipient.id), class: 'btn btn-primary' %></td>
+	</tr>
+<% end %>
+</table>
