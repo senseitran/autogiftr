@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'catalog', to: 'catalog#index'
+
   get 'admin', to: 'admin#index'
 
   resources :gifts

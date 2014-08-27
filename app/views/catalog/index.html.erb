@@ -1,0 +1,26 @@
+<h1>Gifts</h1>
+
+<div class='row'>
+<% @gifts.each_with_index do |gift, index| %>
+
+	<div class="col-sm-4">
+		<div class="panel panel-info">
+			<div class="panel-heading">
+				<p class="panel-title"><%= gift.name %></p>
+			</div>
+
+	<div class="panel-body">
+		<%= image_tag(gift.picture_url(:thumbnail), width: '50px') %>
+		<p><%= gift.description %></p>
+		<p>Price: <%= number_to_currency(gift.price) %></p>
+	</div>
+		</div>
+			</div>
+
+	<% if (index+1)%3 == 0 %>
+		</div>
+		<div class="row">
+	<% end %>
+
+<% end %>
+</div>
