@@ -8,6 +8,7 @@ gem 'rolify'
 gem 'cancan'
 gem 'carrierwave'
 gem 'cloudinary'
+gem 'will_paginate', '~> 3.0.7'
 
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
