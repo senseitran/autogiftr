@@ -1,4 +1,13 @@
 <h1>Gifts</h1>
+<hr>
+<h3>Click tag to filter</h3>
+<% Gift.tag_counts.each do |tag| %>
+	<span class="label label-info"><%= link_to tag.name, catalog_path(tag: tag.name) %> (<%= tag.taggings_count %>)</span>
+<% end %>
+
+<span class="label label-info"><%= link_to "Show all", catalog_path %></span>
+
+</hr>
 
 <div class='row'>
 <% @gifts.each_with_index do |gift, index| %>

@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   resources :occaisions do
       member do
         get :add_gift
+        get :send_gift
       end
     end
 

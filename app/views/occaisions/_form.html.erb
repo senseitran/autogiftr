@@ -6,7 +6,7 @@
     <%= f.input :occaision_type, label: 'Type of occasion', collection: ['Birthday', 'Anniverary', 'Valentines', 'Religious holiday'] %>
     <%= f.input :message %>
     <%= f.input :date %>
-    <%= f.input :recipient_id, input_html: { value: @recipient }, as: :hidden %> 
+    <%= f.input :recipient_id, input_html: { value: @recipient.id }, as: :hidden %> 
   </div>
 
   <div class="form-actions">

@@ -11,4 +11,8 @@ class Occaision < ActiveRecord::Base
 		order(date: :desc)
 	end
 
+	def self.unsent
+		where(sent: nil)
+	end
+
 end

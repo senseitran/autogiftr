@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140821103246) do
+ActiveRecord::Schema.define(version: 20140902084730) do
 
   create_table "accounts", force: true do |t|
     t.string   "name"
@@ -23,6 +23,19 @@ ActiveRecord::Schema.define(version: 20140821103246) do
   end
 
   add_index "accounts", ["user_id"], name: "index_accounts_on_user_id"
+
+  create_table "friendly_id_slugs", force: true do |t|
+    t.string   "slug",                      null: false
+    t.integer  "sluggable_id",              null: false
+    t.string   "sluggable_type", limit: 50
+    t.string   "scope"
+    t.datetime "created_at"
+  end
+
+  add_index "friendly_id_slugs", ["slug", "sluggable_type", "scope"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type_and_scope", unique: true
+  add_index "friendly_id_slugs", ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type"
+  add_index "friendly_id_slugs", ["sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_id"
+  add_index "friendly_id_slugs", ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type"
 
   create_table "gift_occaisions", force: true do |t|
     t.integer  "gift_id"
@@ -41,7 +54,10 @@ ActiveRecord::Schema.define(version: 20140821103246) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "picture"
+    t.string   "slug"
   end
+
+  add_index "gifts", ["slug"], name: "index_gifts_on_slug", unique: true
 
   create_table "occaisions", force: true do |t|
     t.text     "message"
@@ -51,6 +67,7 @@ ActiveRecord::Schema.define(version: 20140821103246) do
     t.integer  "recipient_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "sent"
   end
 
   add_index "occaisions", ["recipient_id"], name: "index_occaisions_on_recipient_id"
@@ -75,6 +92,26 @@ ActiveRecord::Schema.define(version: 20140821103246) do
 
   add_index "roles", ["name", "resource_type", "resource_id"], name: "index_roles_on_name_and_resource_type_and_resource_id"
   add_index "roles", ["name"], name: "index_roles_on_name"
+
+  create_table "taggings", force: true do |t|
+    t.integer  "tag_id"
+    t.integer  "taggable_id"
+    t.string   "taggable_type"
+    t.integer  "tagger_id"
+    t.string   "tagger_type"
+    t.string   "context",       limit: 128
+    t.datetime "created_at"
+  end
+
+  add_index "taggings", ["tag_id", "taggable_id", "taggable_type", "context", "tagger_id", "tagger_type"], name: "taggings_idx", unique: true
+  add_index "taggings", ["taggable_id", "taggable_type", "context"], name: "index_taggings_on_taggable_id_and_taggable_type_and_context"
+
+  create_table "tags", force: true do |t|
+    t.string  "name"
+    t.integer "taggings_count", default: 0
+  end
+
+  add_index "tags", ["name"], name: "index_tags_on_name", unique: true
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false

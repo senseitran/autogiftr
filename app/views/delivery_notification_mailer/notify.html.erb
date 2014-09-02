@@ -1,0 +1,20 @@
+<h1>Delivery notification</h1>
+
+<p>
+ Hi, <%= @user.account.name %>
+</p>
+
+<p>Your gift of <%= pluralize(@occaision.gifts, 'gift') %> for <%= @occaision.recipient.name %> has been sent. </p>
+
+<p>The <%= pluralize(@occaision.gifts, 'gift') %> we have sent are:</p>
+
+<ul>
+	<%= @occaision.gifts.each do |gift| %>
+		<li><%= gift.name %></li>
+		<% end %>
+</ul>
+
+<p>The address we have sent the items to is:</p>
+<p><%= @occaision.recipient.address %></p>
+
+<p>Thanks</p>

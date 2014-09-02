@@ -43,6 +43,7 @@
 			<th>Type</th>
 			<th>Recipient ID</th>
 			<th>Gifts</th>
+			<th>Sent</th>
 		<tr>
 		<% @future_occaisions.each do |occaision| %>
 		<tr>
@@ -55,6 +56,7 @@
 				<li><%= gift.name %></li>
 				<% end %>
 			</ul></td>
+			<td><%= link_to 'Sent', send_gift_occaision_path(occaision), class: 'btn btn-info' %></td>
 		</tr>
 		<% end %>
 		</table>

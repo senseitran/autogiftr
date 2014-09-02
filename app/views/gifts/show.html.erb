@@ -12,6 +12,12 @@
   <%= @gift.price %>
 </p>
 
+<ul>
+<% @gift.tags.each do |tag| %>
+	<li><%= tag.name %></li>
+	<% end %>
+</ul>
+
 <p>
   <strong>Description:</strong>
   <%= @gift.description %>
