@@ -4,14 +4,17 @@ source 'https://rubygems.org'
 gem 'rails', '4.1.4'
 gem 'simple_form'
 gem 'devise'
+gem 'omniauth-facebook'
 gem 'rolify'
 gem 'cancan'
 gem 'carrierwave'
 gem 'cloudinary'
 gem 'will_paginate', '~> 3.0.7'
 gem 'friendly_id', '~> 5.0.0'
-gem 'acts-as-taggable-on' 
+gem 'acts-as-taggable-on'
 gem 'nested_form'
+gem 'sucker_punch', '~> 1.0'
+gem 'ckeditor_rails'
 
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
@@ -34,7 +37,14 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0',          group: :doc
 
 # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
-gem 'spring',        group: :development
+# gem 'spring',        group: :development
+group :development do
+	gem 'spring'
+	gem 'better_errors'
+	gem 'quiet_assets'
+	gem 'annotate'
+	gem 'rails_best_practices'	
+end
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

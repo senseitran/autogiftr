@@ -14,7 +14,7 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="/catalog">Gifts</a></li>
+        <li class="active"><a href="/catalog">Catalog</a></li>
        
         <% if user_signed_in? %> 
           <% if current_user.has_role? :admin %>
@@ -30,12 +30,6 @@
             <% else %>
               <li><a href="/accounts/new">Create account</a></li>
             <% end %>
-
-            <li><a href="#">Another action</a></li>
-            <li><a href="#">Something else here</a></li>
-            <li class="divider"></li>
-            <li><a href="#">Separated link</a></li>
-            <li class="divider"></li>
             <li><%= link_to 'Sign out', destroy_user_session_path, method: :delete %></li>
           </ul>
         </li>

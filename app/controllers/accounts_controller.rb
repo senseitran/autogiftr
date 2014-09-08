@@ -11,6 +11,7 @@ class AccountsController < ApplicationController
   # GET /accounts/1.json
   def show
     authorize! :manage, @account
+    @user = @account.user
   end
 
   # GET /accounts/new

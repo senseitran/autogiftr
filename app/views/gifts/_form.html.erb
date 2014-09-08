@@ -4,7 +4,7 @@
   <div class="form-inputs">
     <%= f.input :name %>
     <%= f.input :price %>
-    <%= f.input :description %>
+    <%= f.input :description, as: :text, input_html: { class: 'form-control ckeditor', rows: 5} %>
   	<%= f.input :picture, as: :file %>
     <%= f.input :tag_list %>
   </div>
@@ -13,3 +13,9 @@
     <%= f.button :submit %>
   </div>
 <% end %>
+
+<script> 
+$('.ckeditor').ckeditor({
+  // optional config
+}); 
+</script>

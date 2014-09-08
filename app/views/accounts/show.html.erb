@@ -17,7 +17,7 @@
 
 <p>
   <strong>Email:</strong>
-  <%= @account.user.email %>
+  <%= @user.email %>
 </p>
 
 <p><%= link_to 'Add a recipient', new_recipient_path, class: 'btn btn-danger' %>
@@ -40,8 +40,8 @@
     <% recipient.occaisions.each do |occaision| %>
       <%= link_to occaision.name, occaision %> <br>
       <% end %>
-    <% end %>
   </td>
+  <% end %>
   <td><%= link_to 'Add occasion', new_occaision_path(recipient: recipient.id), class: 'btn btn-primary' %></td>
 	</tr>
 <% end %>

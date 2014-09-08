@@ -20,7 +20,7 @@
 
 	<div class="panel-body">
 		<%= image_tag(gift.picture_url(:thumbnail), width: '50px') %>
-		<p><%= gift.description %></p>
+		<p><%= gift.description.html_safe %></p>
 		<p>Price: <%= number_to_currency(gift.price) %></p>
 	</div>
 		</div>

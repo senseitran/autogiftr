@@ -1,0 +1,23 @@
+<h1>Enquiry Received</h1>
+
+<p>
+  <strong>Name:</strong>
+  <%= @enquiry.name %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @enquiry.email %>
+</p>
+
+<p>
+  <strong>Phone:</strong>
+  <%= @enquiry.phone %>
+</p>
+
+<p>
+  <strong>Message:</strong>
+  <%= @enquiry.message %>
+</p>
+
+<%= link_to "Link to enquiry", enquiry_url(@enquiry) %>
